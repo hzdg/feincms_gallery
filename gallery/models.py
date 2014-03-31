@@ -106,7 +106,7 @@ class GalleryContent(models.Model):
         remaining = []
 
         # check if the type is paginated
-        if self.has_pagination():
+        if request and self.has_pagination():
             paginator = Paginator(objects, self.spec.paginate_by,
                                   orphans=self.spec.orphans)
             try:
